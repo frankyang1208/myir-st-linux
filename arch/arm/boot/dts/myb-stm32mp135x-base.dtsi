@@ -80,7 +80,51 @@
 			default-state = "off";
 		};
 	};
-
+	
+	rlh-gpios {
+		compatible = "gpio-export";
+		led-blue {
+		        label = "heartbeat"
+			gpios = 
+			        <&gpioa 15 GPIO_ACTIVE_LOW>,
+			        <&gpiob 12 GPIO_ACTIVE_LOW>,
+			        <&gpiod 1  GPIO_ACTIVE_LOW>,
+			        <&gpiod 4  GPIO_ACTIVE_LOW>, 
+			        <&gpiod 5  GPIO_ACTIVE_LOW>,
+			        <&gpiod 9  GPIO_ACTIVE_LOW>,
+			        <&gpiod 10 GPIO_ACTIVE_LOW>,
+			        <&gpiod 11 GPIO_ACTIVE_LOW>,
+			        <&gpiod 14 GPIO_ACTIVE_LOW>,
+			        <&gpiod 15 GPIO_ACTIVE_LOW>,
+			        
+			        <&gpioe 0  GPIO_ACTIVE_LOW>,
+			        <&gpioe 1  GPIO_ACTIVE_LOW>,
+			        <&gpioe 7  GPIO_ACTIVE_LOW>,
+			        <&gpioe 12 GPIO_ACTIVE_LOW>,
+			        <&gpioe 14 GPIO_ACTIVE_LOW>,
+			        <&gpioe 15 GPIO_ACTIVE_LOW>,
+			        
+			        <&gpiof 1  GPIO_ACTIVE_LOW>,
+			        <&gpiof 2  GPIO_ACTIVE_LOW>,
+			        <&gpiof 3  GPIO_ACTIVE_LOW>,
+			        <&gpiof 5  GPIO_ACTIVE_LOW>,
+			        
+			        <&gpiog 0  GPIO_ACTIVE_LOW>,
+			        <&gpiog 4  GPIO_ACTIVE_LOW>,
+			        <&gpiog 7  GPIO_ACTIVE_LOW>,
+			        <&gpiog 15 GPIO_ACTIVE_LOW>,
+			        
+			        <&gpioh 9  GPIO_ACTIVE_LOW>,
+			        <&gpioh 10 GPIO_ACTIVE_LOW>,
+			        <&gpioh 13 GPIO_ACTIVE_LOW>;
+			        
+			
+			;
+			linux,default-trigger = "heartbeat";
+			default-state = "off";
+		};
+	};
+	
 	/*LCD Panel*/
 	//panel_ltdc_rgb: panel_ltdc_rgb{
 	//		compatible = "myir,070tft-7";

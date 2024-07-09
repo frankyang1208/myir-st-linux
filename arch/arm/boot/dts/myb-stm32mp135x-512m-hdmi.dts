@@ -61,38 +61,3 @@
 //	};
 //};
 
-&gpio{
-    pinctrl-name="default";
-    pinctrl-0=<&pins>;
-    
-    pins {
-        pinmux =  <STM32_PINMUX('D', 9,  GPIO)>,
-                  <STM32_PINMUX('E', 1,  GPIO)>,
-                  <STM32_PINMUX('G', 4,  GPIO)>,
-                  <STM32_PINMUX('H', 9,  GPIO)>,
-                  <STM32_PINMUX('D', 5,  GPIO)>,
-                  <STM32_PINMUX('E', 0,  GPIO)>,
-                  <STM32_PINMUX('D', 10, GPIO)>,
-                  <STM32_PINMUX('E', 7,  GPIO)>,
-                  <STM32_PINMUX('G', 15, GPIO)>,
-                  <STM32_PINMUX('D', 15, GPIO)>,
-                  <STM32_PINMUX('D', 1,  GPIO)>,
-                  <STM32_PINMUX('E', 15, GPIO)>,
-                  <STM32_PINMUX('G', 7,  GPIO)>,
-                  <STM32_PINMUX('H', 10, GPIO)>,
-                  <STM32_PINMUX('B', 12, GPIO)>,
-                  <STM32_PINMUX('D', 14, GPIO)>,
-                  <STM32_PINMUX('F', 5,  GPIO)>,
-                  <STM32_PINMUX('D', 4,  GPIO)>,
-                  <STM32_PINMUX('D', 11, GPIO)>,
-                  <STM32_PINMUX('E', 14, GPIO)>,
-                  <STM32_PINMUX('F', 1,  GPIO)>,
-                  <STM32_PINMUX('H', 13, GPIO)>,
-                  <STM32_PINMUX('F', 3,  GPIO)>,
-                  <STM32_PINMUX('F', 2,  GPIO)>,
-                  <STM32_PINMUX('G', 0,  GPIO)>,
-                  <STM32_PINMUX('E', 12, GPIO)>,
-                  <STM32_PINMUX('A', 15, GPIO)>;
-                  bias-disable;
-    };
-};
