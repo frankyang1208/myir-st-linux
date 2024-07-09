@@ -368,7 +368,6 @@
 //	};
 //};
 
-/delete-node/ &ltdc
 
 &rtc {
 	// st,lsco = <RTC_OUT2_RMP>;
