@@ -84,9 +84,8 @@
 	rlh-gpios {
 		compatible = "gpio-export";
 		led-blue {
-		        label = "heartbeat"
-			gpios = 
-			        <&gpioa 15 GPIO_ACTIVE_LOW>,
+		        label = "heartbeat";
+			gpios = <&gpioa 15 GPIO_ACTIVE_LOW>,
 			        <&gpiob 12 GPIO_ACTIVE_LOW>,
 			        <&gpiod 1  GPIO_ACTIVE_LOW>,
 			        <&gpiod 4  GPIO_ACTIVE_LOW>, 
@@ -118,10 +117,7 @@
 			        <&gpioh 10 GPIO_ACTIVE_LOW>,
 			        <&gpioh 13 GPIO_ACTIVE_LOW>;
 			        
-			
-			;
 			linux,default-trigger = "heartbeat";
-			default-state = "off";
 		};
 	};
 	
