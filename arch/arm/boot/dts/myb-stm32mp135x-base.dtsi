@@ -96,6 +96,8 @@
 					};
 			};
 	};
+	
+	/delete-node/ panel_ltdc_rgb
 
     v3v3_hdmi: regulator-v3v3-hdmi {
         compatible = "regulator-fixed";
@@ -365,6 +367,8 @@
 		};
 	};
 };
+
+/delete-node/ &ltdc
 
 &rtc {
 	// st,lsco = <RTC_OUT2_RMP>;

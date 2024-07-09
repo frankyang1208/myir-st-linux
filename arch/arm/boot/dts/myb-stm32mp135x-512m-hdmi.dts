@@ -29,6 +29,8 @@
 	};
 };
 
+/delete-node/ &ltdc
+
 &i2c3{
 		sii902x: sii902x@39 {
 		compatible = "sil,sii9022";

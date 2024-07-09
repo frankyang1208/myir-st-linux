@@ -201,6 +201,8 @@
 			slew-rate = <1>;
 		};
 	};
+	
+	
 
 	ltdc_sleep_pins_a: ltdc-sleep-0 {
 		pins {
@@ -236,6 +238,9 @@
                                                 slew-rate = <1>;
 		};
 	};
+	
+	/delete-node/ ltdc-0
+	/delete-node/ ltdc-sleep-0 
 
 	m_can2_pins_a: m-can2-0 {
 		pins1 {
