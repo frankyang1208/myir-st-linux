@@ -353,6 +353,7 @@
 	status = "okay";
 };
 
+/***
 &ltdc {
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&ltdc_pins_a>;
@@ -369,7 +370,7 @@
 };
 
 /delete-node/ &ltdc
-
+***/
 &rtc {
 	// st,lsco = <RTC_OUT2_RMP>;
 	// pinctrl-0 = <&rtc_out2_rmp_pins_a>;

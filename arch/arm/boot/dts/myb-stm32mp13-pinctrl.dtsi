@@ -165,6 +165,7 @@
 								<STM32_PINMUX('H', 7, ANALOG)>; /* I2C5_SDA */
 			};
 	};
+	/****
 
 	ltdc_pins_a: ltdc-0 {
 		pins {
@@ -239,9 +240,7 @@
 		};
 	};
 	
-	/delete-node/ ltdc-0
-	/delete-node/ ltdc-sleep-0 
-
+        ***/
 	m_can2_pins_a: m-can2-0 {
 		pins1 {
 			pinmux = <STM32_PINMUX('B', 13, AF9)>; /* CAN2_TX */

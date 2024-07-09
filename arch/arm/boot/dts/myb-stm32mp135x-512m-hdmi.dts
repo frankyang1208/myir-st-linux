@@ -11,7 +11,7 @@
 &panel_ltdc_rgb{
 	status = "disabled";
 };
-
+/***
 &ltdc {
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&ltdc_pins_a>;
@@ -30,7 +30,7 @@
 };
 
 /delete-node/ &ltdc
-
+****/
 &i2c3{
 		sii902x: sii902x@39 {
 		compatible = "sil,sii9022";
