@@ -117,7 +117,6 @@
 			        <&gpioh 10 GPIO_ACTIVE_LOW>,
 			        <&gpioh 13 GPIO_ACTIVE_LOW>;
 			        
-			linux,default-trigger = "heartbeat";
 		};
 	};
 	
@@ -284,23 +283,23 @@
 	status = "okay";
 };
 
-&dcmipp {
-	status = "okay";
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&dcmiapp_pins_mx>;
-	pinctrl-1 = <&dcmiapp_sleep_pins_mx>;
-
-	port {
-			dcmipp_0: endpoint {
-					remote-endpoint = <&ov2659_0>;
-					bus-width = <8>;
-					hsync-active = <0>;
-					vsync-active = <1>;
-					pclk-sample = <1>;
-//					pclk-max-frequency = <120000000>;
-			};
-	};
-};
+//&dcmipp {
+//	status = "okay";
+//	pinctrl-names = "default", "sleep";
+//	pinctrl-0 = <&dcmiapp_pins_mx>;
+//	pinctrl-1 = <&dcmiapp_sleep_pins_mx>;
+//
+//	port {
+//			dcmipp_0: endpoint {
+//					remote-endpoint = <&ov2659_0>;
+//					bus-width = <8>;
+//					hsync-active = <0>;
+//					vsync-active = <1>;
+//					pclk-sample = <1>;
+////					pclk-max-frequency = <120000000>;
+//			};
+//	};
+//};
 
 &dma1 {
 	sram = <&dma_pool>;
@@ -477,15 +476,15 @@
 	status = "disabled";
 };
 
-&uart8 {
-	pinctrl-names = "default", "sleep", "idle";
-	pinctrl-0 = <&uart8_pins_a>;
-	pinctrl-1 = <&uart8_sleep_pins_a>;
-	pinctrl-2 = <&uart8_idle_pins_a>;
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	status = "disabled";
-};
+//&uart8 {
+//	pinctrl-names = "default", "sleep", "idle";
+//	pinctrl-0 = <&uart8_pins_a>;
+//	pinctrl-1 = <&uart8_sleep_pins_a>;
+//	pinctrl-2 = <&uart8_idle_pins_a>;
+//	/delete-property/dmas;
+//	/delete-property/dma-names;
+//	status = "disabled";
+//};
 
 &usart1 {
 	pinctrl-names = "default", "sleep", "idle";
@@ -602,29 +601,29 @@
 		};
 	};
 
-	ov2659: camera@30 {
-		compatible = "ovti,ov2659";
-		reg = <0x30>;
-		clocks = <&clk_ext_camera>;
-		clock-names = "xvclk";
-		DOVDD-supply = <&v2v8>;
-		powerdown-gpios = <&gpioc 13 (GPIO_ACTIVE_HIGH | GPIO_PUSH_PULL)>;
-		reset-gpios = <&gpiog 8 (GPIO_ACTIVE_LOW | GPIO_PUSH_PULL)>;
-		// rotation = <180>;
-		status = "okay";
-			port {
-			ov2659_0: endpoint {
-				remote-endpoint = <&dcmipp_0>;
-				// bus-width = <8>;
-				// data-shift = <2>; /* lines 9:2 are used */
-				// hsync-active = <0>;
-				// vsync-active = <0>;
-				// pclk-sample = <1>;
-				link-frequencies = /bits/ 64 <70000000>;
-				// pclk-max-frequency = <24000000>;
-			};
-		};
-	};
+	//ov2659: camera@30 {
+	//	compatible = "ovti,ov2659";
+	//	reg = <0x30>;
+	//	clocks = <&clk_ext_camera>;
+	//	clock-names = "xvclk";
+	//	DOVDD-supply = <&v2v8>;
+	//	powerdown-gpios = <&gpioc 13 (GPIO_ACTIVE_HIGH | GPIO_PUSH_PULL)>;
+	//	reset-gpios = <&gpiog 8 (GPIO_ACTIVE_LOW | GPIO_PUSH_PULL)>;
+	//	// rotation = <180>;
+	//	status = "okay";
+	//		port {
+	//		ov2659_0: endpoint {
+	//			remote-endpoint = <&dcmipp_0>;
+	//			// bus-width = <8>;
+	//			// data-shift = <2>; /* lines 9:2 are used */
+	//			// hsync-active = <0>;
+	//			// vsync-active = <0>;
+	//			// pclk-sample = <1>;
+	//			link-frequencies = /bits/ 64 <70000000>;
+	//			// pclk-max-frequency = <24000000>;
+	//		};
+	//	};
+	//};
 
 	sgtl5000: audio-codec@a {
 		status = "okay";
