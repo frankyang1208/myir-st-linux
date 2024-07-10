@@ -84,8 +84,7 @@
 	rlh-gpios {
 		compatible = "st, stm32mp135-gpio";
 		gpio-controller;
-		gpios =         
-		                <&gpioa 9  GPIO_ACTIVE_LOW>,		                
+		gpios =         <&gpioa 9  GPIO_ACTIVE_LOW>,		                
 		                <&gpioa 15 GPIO_ACTIVE_LOW>,
 		                
 			        <&gpiob 7  GPIO_ACTIVE_LOW>,
@@ -133,9 +132,6 @@
 			        <&gpioh 14 GPIO_ACTIVE_LOW>,
 			        
 			        <&gpioi 7  GPIO_ACTIVE_LOW>;
-			        
-			        
-		};
 	};
 	
 	/*LCD Panel*/
