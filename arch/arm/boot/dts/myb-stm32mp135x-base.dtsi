@@ -270,7 +270,7 @@
 	//			frame-master;
 	//			system-clock-frequency = <12000000>;
 	//	};
-    };
+        //};
 
 };
 
