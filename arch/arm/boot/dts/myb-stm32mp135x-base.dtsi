@@ -91,14 +91,19 @@
 			        <&gpiob 8  GPIO_ACTIVE_LOW>,
 			        <&gpiob 12 GPIO_ACTIVE_LOW>,
 			        
+			        <&gpioc 8  GPIO_ACTIVE_LOW>,
+			        <&gpioc 13 GPIO_ACTIVE_LOW>,
+			        
 			        <&gpiod 0  GPIO_ACTIVE_LOW>,
 			        <&gpiod 1  GPIO_ACTIVE_LOW>,
+			        <&gpiod 2  GPIO_ACTIVE_LOW>,
 			        <&gpiod 3  GPIO_ACTIVE_LOW>,
 			        <&gpiod 4  GPIO_ACTIVE_LOW>, 
 			        <&gpiod 5  GPIO_ACTIVE_LOW>,
 			        <&gpiod 9  GPIO_ACTIVE_LOW>,
 			        <&gpiod 10 GPIO_ACTIVE_LOW>,
 			        <&gpiod 11 GPIO_ACTIVE_LOW>,
+			        <&gpiod 12 GPIO_ACTIVE_LOW>,
 			        <&gpiod 14 GPIO_ACTIVE_LOW>,
 			        <&gpiod 15 GPIO_ACTIVE_LOW>,
 			        
@@ -106,7 +111,10 @@
 			        <&gpioe 1  GPIO_ACTIVE_LOW>,
 			        <&gpioe 4  GPIO_ACTIVE_LOW>,
 			        <&gpioe 7  GPIO_ACTIVE_LOW>,
+			        <&gpioe 8  GPIO_ACTIVE_LOW>,
 			        <&gpioe 9  GPIO_ACTIVE_LOW>,
+			        <&gpioe 10  GPIO_ACTIVE_LOW>,
+			        <&gpioe 11  GPIO_ACTIVE_LOW>,
 			        <&gpioe 12 GPIO_ACTIVE_LOW>,
 			        <&gpioe 13 GPIO_ACTIVE_LOW>,
 			        <&gpioe 14 GPIO_ACTIVE_LOW>,
@@ -121,6 +129,7 @@
 			        <&gpiog 4  GPIO_ACTIVE_LOW>,
 			        <&gpiog 7  GPIO_ACTIVE_LOW>,
 			        <&gpiog 9  GPIO_ACTIVE_LOW>,
+			        <&gpiog 12 GPIO_ACTIVE_LOW>,
 			        <&gpiog 15 GPIO_ACTIVE_LOW>,
 			        
 			        <&gpioh 4  GPIO_ACTIVE_LOW>,
@@ -131,8 +140,8 @@
 			        <&gpioh 13 GPIO_ACTIVE_LOW>,
 			        <&gpioh 14 GPIO_ACTIVE_LOW>,
 			        
-			        
-			        
+			        <&gpioi 0  GPIO_ACTIVE_LOW>;
+			        <&gpioi 2  GPIO_ACTIVE_LOW>;
 			        <&gpioi 7  GPIO_ACTIVE_LOW>;
 			        
 			        
