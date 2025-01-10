@@ -140,8 +140,8 @@
 			        <&gpioh 13 GPIO_ACTIVE_LOW>,
 			        <&gpioh 14 GPIO_ACTIVE_LOW>,
 			        
-			        <&gpioi 0  GPIO_ACTIVE_LOW>;
-			        <&gpioi 2  GPIO_ACTIVE_LOW>;
+			        <&gpioi 0  GPIO_ACTIVE_LOW>,
+			        <&gpioi 2  GPIO_ACTIVE_LOW>,
 			        <&gpioi 7  GPIO_ACTIVE_LOW>;
 			        
 			        
