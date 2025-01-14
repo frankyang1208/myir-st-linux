@@ -409,9 +409,6 @@
 	// st,ext-phyclk;
 	// st,eth-clk-sel;
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
-	reset-deassert-us = <1000>;
-	reset-assert-us = <1000>;
-
 	mdio1 {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -420,19 +417,8 @@
 		phy0_eth1: ethernet-phy@0 {
 				compatible = "ti,dp83869";
 				reg = <0>;
-                //Enable fiber mode 
-			    ti,fiber-mode;
-                            // Optional clock configuration for fiber mode
-			    //ti,rxclk-out;
-			    //ti,tx-fifo-depth = <3>; // Example FIFO depth configuration 
-                
-			    // Optional delay settings (if needed for RGMII)
-			    tx-internal-delay-ps = <2000>;
-			    rx-internal-delay-ps = <2000>;
 		};
-		
-		
-		
+
 	};
 };
 
