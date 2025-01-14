@@ -13,13 +13,13 @@
 	compatible = "st,stm32mp135f-dk", "st,stm32mp135";
 
 	aliases {
-		ethernet0 = &eth2;
-		ethernet1 = &eth1;
+		//ethernet0 = &eth2;
+		//ethernet1 = &eth1;
 		serial0 = &uart4;
 		//serial1 = &uart7;
 		//serial2 = &uart5;
 	};
-
+    
 	chosen {
 		#address-cells = <1>;
 		#size-cells = <1>;

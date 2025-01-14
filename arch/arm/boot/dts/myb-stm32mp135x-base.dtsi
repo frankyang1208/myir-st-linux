@@ -19,8 +19,8 @@
 	compatible = "st,stm32mp135f-dk", "st,stm32mp135";
 
 	aliases {
-		ethernet0 = &eth1;
-		ethernet1 = &eth2;
+		ethernet0 = &eth2;
+		ethernet1 = &eth1;
 		serial0 = &uart4;
 		//serial1 = &uart7;
 		//serial2 = &uart5;
@@ -398,7 +398,7 @@
 //	};
 //};
 
-&eth2 {
+&eth1 {
 	status = "okay";
 	pinctrl-0 = <&eth1_rgmii_pins_a>;
 	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
@@ -421,7 +421,7 @@
 	};
 };
 
-&eth1 {
+&eth2 {
 	status = "okay";
 	pinctrl-0 = <&eth2_rgmii_pins_a>;
 	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
