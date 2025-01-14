@@ -415,7 +415,8 @@
 		compatible = "snps,dwmac-mdio";
 
 		phy0_eth1: ethernet-phy@0 {
-				compatible = "ti,dp83869";
+				//compatible = "ti,dp83869";
+				compatible = "ethernet-phy-ieee802.3-c22";
 				reg = <0>;
 		};
 
