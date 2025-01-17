@@ -408,6 +408,7 @@
 	phy-handle = <&phy0_eth1>;
 	// st,ext-phyclk;
 	// st,eth-clk-sel;
+    phy-supply = <&v3v3_ao>;
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
 	mdio1 {
 		#address-cells = <1>;
@@ -415,8 +416,7 @@
 		compatible = "snps,dwmac-mdio";
 
 		phy0_eth1: ethernet-phy@0 {
-				//compatible = "ti,dp83869";
-				compatible = "ethernet-phy-ieee802.3-c22";
+				compatible = "ti,dp83869";
 				reg = <0>;
 		};
 

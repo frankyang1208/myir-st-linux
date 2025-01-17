@@ -304,7 +304,7 @@
 		#size-cells = <0>;
 		compatible = "snps,dwmac-mdio";
 		phy0_eth1: ethernet-phy@0 {
-				compatible = "ethernet-phy-ieee802.3-c22";
+				compatible = "ti,dp83869";
 				reg = <0>;
 		};
 	};
