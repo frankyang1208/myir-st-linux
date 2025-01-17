@@ -417,7 +417,7 @@
 
 		phy0_eth1: ethernet-phy@0 {
 				compatible = "ti,dp83869";
-				reg = <0>;
+				reg = <1>;
 		};
 
 	};
