@@ -400,42 +400,31 @@
 //};
 
 &eth1 {
-	status = "okay";
-	pinctrl-0 = <&eth1_rgmii_pins_a>;
-	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
-	pinctrl-names = "default", "sleep";
-	phy-mode = "rgmii-id";
-	max-speed = <1000>;
-	phy-handle = <&phy0_eth1>;
-	// st,ext-phyclk;
-	// st,eth-clk-sel;
+    status = "okay";
+    pinctrl-0 = <&eth1_rgmii_pins_a>;
+    pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
+    pinctrl-names = "default", "sleep";
+    phy-mode = "rgmii-id";
+    max-speed = <1000>;
+    phy-handle = <&phy0_eth1>;
     phy-supply = <&v3v3_ao>;
-	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
-	//mdio1 {
-	//	#address-cells = <1>;
-	//	#size-cells = <0>;
-	//	compatible = "snps,dwmac-mdio";
-	//	phy0_eth1: ethernet-phy@0 {
-	//			compatible = "ti,dp83869";
-	//			reg = <0>;
-	//	};
-//
-//	};
-    
+    st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
+
     mdio0 {
-      #address-cells = <1>;
-      #size-cells = <0>;
-      phy0_eth1: ethernet-phy@0  {
-        compatible = "ti,dp83869";
-        reg = <0>;
-        tx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
-        rx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
-        ti,op-mode = <DP83869_RGMII_COPPER_ETHERNET>;
-        ti,max-output-impedance = "true";
-        ti,clk-output-sel = <DP83869_CLK_O_SEL_CHN_A_RCLK>;
-        rx-internal-delay-ps = <2000>;
-        tx-internal-delay-ps = <2000>;
-      };
+        #address-cells = <1>;
+        #size-cells = <0>;
+        phy0_eth1: ethernet-phy@0 {
+            compatible = "ti,dp83869";
+            device_type = "ethernet-phy";
+            reg = <0>;
+            tx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
+            rx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
+            ti,op-mode = <DP83869_RGMII_COPPER_ETHERNET>;
+            ti,max-output-impedance = "true";
+            ti,clk-output-sel = <DP83869_CLK_O_SEL_CHN_A_RCLK>;
+            rx-internal-delay-ps = <2000>;
+            tx-internal-delay-ps = <2000>;
+        };
     };
 };
 
