@@ -341,63 +341,6 @@
 	status = "okay";
 };
 
-//&eth1 {
-//	status = "okay";
-//	pinctrl-0 = <&eth2_rgmii_pins_a>;
-//	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
-//
-//	pinctrl-names = "default", "sleep";
-//	phy-mode = "rgmii-id";
-//	max-speed = <1000>;
-//	phy-handle = <&phy0_eth2>;
-//	// st,ext-phyclk;
-//	// st,eth-clk-sel;
-//	phy-supply = <&v3v3_ao>;
-//	st,phy-reset-gpios =  <&gpioh 5 GPIO_ACTIVE_HIGH>;
-//	reset-deassert-us = <1000>;
-//	reset-assert-us = <1000>;
-//	mdio1 {
-//		#address-cells = <1>;
-//		#size-cells = <0>;
-//		compatible = "snps,dwmac-mdio";
-//		phy0_eth2: ethernet-phy@2 {
-//				compatible = "ti,dp83869";
-//				reg = <2>;
-//                //Enable fiber mode 
-//			    ti,fiber-mode;
-//                // Optional clock configuration for fiber mode
-//			    ti,rxclk-out;
-//			    ti,tx-fifo-depth = <3>; // Example FIFO depth configuration 
-//                
-//			    // Optional delay settings (if needed for RGMII)
-//			    tx-internal-delay-ps = <2000>;
-//			    rx-internal-delay-ps = <2000>;
-//		};
-//	};
-//};
-//
-//&eth2 {
-//	status = "okay";
-//	pinctrl-0 = <&eth1_rgmii_pins_a>;
-//	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
-//	pinctrl-names = "default", "sleep";
-//	phy-mode = "rgmii-id";
-//	max-speed = <1000>;
-//	phy-handle = <&phy0_eth1>;
-//	// st,ext-phyclk;
-//	// st,eth-clk-sel;
-//	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
-//
-//	mdio1 {
-//		#address-cells = <1>;
-//		#size-cells = <0>;
-//		compatible = "snps,dwmac-mdio";
-//		phy0_eth1: ethernet-phy@0 {
-//				compatible = "ethernet-phy-ieee802.3-c22";
-//				reg = <0>;
-//		};
-//	};
-//};
 
 &eth1 {
 	status = "okay";
@@ -407,8 +350,8 @@
 	phy-mode = "rgmii-id";
 	max-speed = <1000>;
 	phy-handle = <&phy0_eth1>;
-	// st,ext-phyclk;
-	// st,eth-clk-sel;
+	st,ext-phyclk;
+	st,eth-clk-sel;
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
 
 	mdio1 {
@@ -416,7 +359,7 @@
 		#size-cells = <0>;
 		compatible = "snps,dwmac-mdio";
 		phy0_eth1: ethernet-phy@0 {
-				compatible = "ethernet-phy-ieee802.3-c22";
+				compatible = "ti,dp83869";
 				reg = <0>;
 		};
 	};
