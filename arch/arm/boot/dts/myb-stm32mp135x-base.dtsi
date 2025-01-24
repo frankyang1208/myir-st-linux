@@ -352,6 +352,8 @@
 	phy-handle = <&phy0_eth1>;
 	st,ext-phyclk;
 	st,eth-clk-sel;
+    reset-deassert-us = <1000>;
+	reset-assert-us = <1000>;
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
 
 	mdio1 {
@@ -360,6 +362,7 @@
 		compatible = "snps,dwmac-mdio";
 		phy0_eth1: ethernet-phy@0 {
 				//compatible = "ti,dp83869";
+                // No 'compatible' needed here for the PHY driver, it's matched via PHY ID
 				reg = <0>;
 		};
 	};
