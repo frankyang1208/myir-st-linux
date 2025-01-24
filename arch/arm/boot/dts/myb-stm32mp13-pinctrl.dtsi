@@ -68,7 +68,7 @@
 						<STM32_PINMUX('C', 1, AF11)>, /* ETH1_GTX_CLK */
 						<STM32_PINMUX('C', 2, AF11)>, /* ETH1_TXD2 */
 						<STM32_PINMUX('E', 5, AF10)>, /* ETH1_TXD3 */
-						<STM32_PINMUX('H', 2, AF11)>, /* ETH1_CLK125 */
+						<STM32_PINMUX('F', 12, AF11)>, /* ETH1_CLK125 */
 						<STM32_PINMUX('G', 2, AF11)>, /* ETH1_MDC */
 						<STM32_PINMUX('G', 13, AF11)>, /* ETH1_TXD0 */
 						<STM32_PINMUX('G', 14, AF11)>; /* ETH1_TXD1 */
@@ -91,7 +91,7 @@
 							<STM32_PINMUX('C', 4, ANALOG)>, /* ETH1_RXD0 */
 							<STM32_PINMUX('C', 5, ANALOG)>, /* ETH1_RXD1 */
 							<STM32_PINMUX('E', 5, ANALOG)>, /* ETH1_TXD3 */
-							<STM32_PINMUX('H', 2, ANALOG)>, /* ETH1_CLK125 */
+							<STM32_PINMUX('F', 12, ANALOG)>, /* ETH1_CLK125 */
 							<STM32_PINMUX('G', 2, ANALOG)>, /* ETH1_MDC */
 							<STM32_PINMUX('G', 13, ANALOG)>, /* ETH1_TXD0 */
 							<STM32_PINMUX('G', 14, ANALOG)>; /* ETH1_TXD1 */
