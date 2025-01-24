@@ -901,25 +901,25 @@ static struct phy_driver dp83869_driver[] = {
 		.suspend	= genphy_suspend,
 		.resume		= genphy_resume,
 		
-		.driver = {
-		    .of_match_table = dp83869_of_match,
-		},
+		//.driver = {
+		//    .of_match_table = dp83869_of_match,
+		//},
 	},
 };
 module_phy_driver(dp83869_driver);
 
-//static struct mdio_device_id __maybe_unused dp83869_tbl[] = {
-//	{ PHY_ID_MATCH_MODEL(DP83869_PHY_ID) },
-//	{ }
-//};
-//MODULE_DEVICE_TABLE(mdio, dp83869_tbl);
-
-static const struct of_device_id dp83869_of_match[] = {
-    { .compatible = "ti,dp83869" };
-    { }
+static struct mdio_device_id __maybe_unused dp83869_tbl[] = {
+	{ PHY_ID_MATCH_MODEL(DP83869_PHY_ID) },
+	{ }
 };
+MODULE_DEVICE_TABLE(mdio, dp83869_tbl);
 
-MODULE_DEVICE_TABLE(of, dp83869_of_match); 
+//static const struct of_device_id dp83869_of_match[] = {
+//    { .compatible = "ti,dp83869" };
+//    { }
+//};
+
+//MODULE_DEVICE_TABLE(of, dp83869_of_match); 
 
 
 MODULE_DESCRIPTION("Texas Instruments DP83869 PHY driver");
