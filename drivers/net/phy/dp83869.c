@@ -810,7 +810,7 @@ static int dp83869_config_init(struct phy_device *phydev)
 				     DP83869_IO_MUX_CFG_CLK_O_SEL_MASK,
 				     dp83869->clk_output_sel <<
 				     DP83869_IO_MUX_CFG_CLK_O_SEL_SHIFT);
-
+                     
 	if (phy_interface_is_rgmii(phydev)) {
 		ret = phy_write_mmd(phydev, DP83869_DEVADDR, DP83869_RGMIIDCTL,
 				    dp83869->rx_int_delay |
@@ -843,8 +843,6 @@ static int dp83869_probe(struct phy_device *phydev)
 {
 	struct dp83869_private *dp83869;
 	int ret;
-    pr_debug("dp83869_probe called for PHY device: %s\n");
-
 	dp83869 = devm_kzalloc(&phydev->mdio.dev, sizeof(*dp83869),
 			       GFP_KERNEL);
 	if (!dp83869)
