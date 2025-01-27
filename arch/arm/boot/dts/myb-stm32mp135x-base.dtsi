@@ -361,6 +361,7 @@
 		#size-cells = <0>;
 		compatible = "snps,dwmac-mdio";
 		phy0_eth1: ethernet-phy@0 {
+                compatible = "ethernet-phy-ieee802.3-c22";
 				//compatible = "ti,dp83869";
                 // No 'compatible' needed here for the PHY driver, it's matched via PHY ID
 				reg = <0>;
@@ -368,7 +369,7 @@
                 rx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
                 ti,op-mode = <DP83869_RGMII_1000_BASE>;
                 ti,min-output-impedance;
-                ti,clk-output-sel = <DP83869_CLK_O_SEL_CHN_A_TCLK>;
+                ti,clk-output-sel = <DP83869_CLK_O_SEL_CHN_B_RCLK>;
                 rx-internal-delay-ps = <2000>;
                 tx-internal-delay-ps = <2000>;
 		};
