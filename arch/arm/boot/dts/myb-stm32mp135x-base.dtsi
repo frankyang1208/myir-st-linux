@@ -367,7 +367,7 @@
                 tx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
                 rx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
                 ti,op-mode = <DP83869_RGMII_1000_BASE>;
-                ti,max-output-impedance;
+                ti,min-output-impedance;
                 ti,clk-output-sel = <DP83869_CLK_O_SEL_CHN_A_TCLK>;
                 rx-internal-delay-ps = <2000>;
                 tx-internal-delay-ps = <2000>;

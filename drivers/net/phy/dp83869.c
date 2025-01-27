@@ -843,7 +843,7 @@ static int dp83869_probe(struct phy_device *phydev)
 {
 	struct dp83869_private *dp83869;
 	int ret;
-    pr_debug("dp83869_probe called for PHY device: %s\n", phydev->dev->of_node->name);
+    pr_debug("dp83869_probe called for PHY device: %s\n");
 
 	dp83869 = devm_kzalloc(&phydev->mdio.dev, sizeof(*dp83869),
 			       GFP_KERNEL);
