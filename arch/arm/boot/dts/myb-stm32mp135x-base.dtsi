@@ -350,8 +350,8 @@
 	phy-mode = "rgmii-id";
 	max-speed = <1000>;
 	phy-handle = <&phy0_eth1>;
-	st,ext-phyclk;
-	st,eth-clk-sel;
+	//st,ext-phyclk;
+	//st,eth-clk-sel;
     reset-deassert-us = <1000>;
 	reset-assert-us = <1000>;
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
@@ -364,6 +364,13 @@
 				//compatible = "ti,dp83869";
                 // No 'compatible' needed here for the PHY driver, it's matched via PHY ID
 				reg = <0>;
+                tx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
+                rx-fifo-depth = <DP83869_PHYCR_FIFO_DEPTH_4_B_NIB>;
+                ti,op-mode = <DP83869_RGMII_COPPER_ETHERNET>;
+                ti,max-output-impedance;
+                ti,clk-output-sel = <DP83869_CLK_O_SEL_CHN_A_RCLK>;
+                rx-internal-delay-ps = <2000>;
+                tx-internal-delay-ps = <2000>;
 		};
 	};
 };
