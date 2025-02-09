@@ -704,7 +704,7 @@ static int dp83869_configure_fiber(struct phy_device *phydev,
 
 	return 0;
 }
-}
+
 
 static int dp83869_configure_mode(struct phy_device *phydev,
 				  struct dp83869_private *dp83869)
