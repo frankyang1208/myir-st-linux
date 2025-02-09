@@ -186,81 +186,23 @@ static void dp83869_sfp_phy_change(struct phy_device *phydev, bool up)
 
 static int dp83869_connect_phy(void *upstream, struct phy_device *phy)
 {
-	struct phy_device *phydev = upstream;
-	struct dp83869_private *dp83869;
-
-	dp83869 = phydev->priv;
-
-	if (dp83869->mode != DP83869_RGMII_SGMII_BRIDGE)
-		return 0;
-
-	if (!phy->drv) {
-		dev_warn(&phy->mdio.dev, "No driver bound to SFP module phy!\n");
-		return 0;
-	}
-
-	phy_support_asym_pause(phy);
-	linkmode_set_bit(PHY_INTERFACE_MODE_SGMII, phy->host_interfaces);
-	phy->interface = PHY_INTERFACE_MODE_SGMII;
-	phy->port = PORT_TP;
-
-	phy->speed = SPEED_UNKNOWN;
-	phy->duplex = DUPLEX_UNKNOWN;
-	phy->pause = MLO_PAUSE_NONE;
-	phy->interrupts = PHY_INTERRUPT_DISABLED;
-	phy->irq = PHY_POLL;
-	phy->phy_link_change = &dp83869_sfp_phy_change;
-	phy->state = PHY_READY;
-
-	dp83869->mod_phy = phy;
-
 	return 0;
 }
 
 static void dp83869_disconnect_phy(void *upstream)
 {
-	struct phy_device *phydev = upstream;
-	struct dp83869_private *dp83869;
 
-	dp83869 = phydev->priv;
-	dp83869->mod_phy = NULL;
 }
 
 static int dp83869_module_start(void *upstream)
 {
-	struct phy_device *phydev = upstream;
-	struct dp83869_private *dp83869;
-	struct phy_device *mod_phy;
-	int ret;
-
-	dp83869 = phydev->priv;
-	mod_phy = dp83869->mod_phy;
-	if (!mod_phy)
-		return 0;
-
-	ret = phy_init_hw(mod_phy);
-	if (ret) {
-		dev_err(&mod_phy->mdio.dev, "Failed to initialize PHY hardware: error %d", ret);
-		return ret;
-	}
-
-	phy_start(mod_phy);
 
 	return 0;
 }
 
 static void dp83869_module_stop(void *upstream)
 {
-	struct phy_device *phydev = upstream;
-	struct dp83869_private *dp83869;
-	struct phy_device *mod_phy;
 
-	dp83869 = phydev->priv;
-	mod_phy = dp83869->mod_phy;
-	if (!mod_phy)
-		return;
-
-	phy_stop(mod_phy);
 }
 
 
@@ -932,59 +874,7 @@ static int dp83869_config_init(struct phy_device *phydev)
 
 static int dp83869_module_insert(void *upstream, const struct sfp_eeprom_id *id)
 {
-	__ETHTOOL_DECLARE_LINK_MODE_MASK(phy_support);
-	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
-	DECLARE_PHY_INTERFACE_MASK(interfaces);
-	struct phy_device *phydev = upstream;
-	struct dp83869_private *dp83869;
-	phy_interface_t interface;
-
-	linkmode_zero(phy_support);
-	phylink_set(phy_support, 1000baseX_Full);
-	phylink_set(phy_support, 100baseFX_Full);
-	phylink_set(phy_support, FIBRE);
-	phylink_set(phy_support, 10baseT_Full);
-	phylink_set(phy_support, 100baseT_Full);
-	phylink_set(phy_support, 1000baseT_Full);
-	phylink_set(phy_support, Autoneg);
-	phylink_set(phy_support, Pause);
-	phylink_set(phy_support, Asym_Pause);
-	phylink_set(phy_support, TP);    
-
-	linkmode_zero(sfp_support);
-	sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
-
-	linkmode_and(sfp_support, phy_support, sfp_support);
-
-	if (linkmode_empty(sfp_support)) {
-		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
-		return -EINVAL;
-	}
-
-	interface = sfp_select_interface(phydev->sfp_bus, sfp_support);
-
-	dev_info(&phydev->mdio.dev, "%s SFP compatible link mode: %s\n", __func__,
-		 phy_modes(interface));
-
-	dp83869 = phydev->priv;
-
-	switch (interface) {
-	case PHY_INTERFACE_MODE_100BASEX:
-		dp83869->mode = DP83869_RGMII_100_BASE;
-		phydev->port = PORT_FIBRE;
-		break;
-	case PHY_INTERFACE_MODE_1000BASEX:
-		dp83869->mode = DP83869_RGMII_1000_BASE;
-		phydev->port = PORT_FIBRE;
-		break;
-	default:
-		dev_err(&phydev->mdio.dev,
-			"incompatible PHY-to-SFP module link mode %s!\n",
-			phy_modes(interface));
-		return -EINVAL;
-	}
-
-	return dp83869_configure_mode(phydev, dp83869);
+ return 0;
 }
 
 static const struct sfp_upstream_ops dp83869_sfp_ops = {
