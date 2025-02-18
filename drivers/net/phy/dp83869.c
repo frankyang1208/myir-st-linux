@@ -712,9 +712,9 @@ static int dp83869_configure_mode(struct phy_device *phydev,
 	int phy_ctrl_val;
 	int ret;
 
-	if (dp83869->mode < DP83869_RGMII_COPPER_ETHERNET ||
-	    dp83869->mode > DP83869_SGMII_COPPER_ETHERNET)
-		return -EINVAL;
+	//if (dp83869->mode < DP83869_RGMII_COPPER_ETHERNET ||
+	//    dp83869->mode > DP83869_SGMII_COPPER_ETHERNET)
+	//	return -EINVAL;
 
 	/* Below init sequence for each operational mode is defined in
 	 * section 9.4.8 of the datasheet.
@@ -736,7 +736,7 @@ static int dp83869_configure_mode(struct phy_device *phydev,
 	phy_ctrl_val = (dp83869->rx_fifo_depth << DP83869_RX_FIFO_SHIFT |
 			dp83869->tx_fifo_depth << DP83869_TX_FIFO_SHIFT |
 			DP83869_PHY_CTRL_DEFAULT);
-
+    /***
 	switch (dp83869->mode) {
 	case DP83869_RGMII_COPPER_ETHERNET:
 		ret = phy_write(phydev, MII_DP83869_PHYCTRL,
@@ -805,8 +805,10 @@ static int dp83869_configure_mode(struct phy_device *phydev,
 	default:
 		return -EINVAL;
 	}
+    ***/
+    ret = dp83869_configure_fiber(phydev, dp83869);
     ret = phy_write(phydev, DP83869_CTRL, DP83869_SW_RESTART);
-	usleep_range(10, 20);
+	usleep_range(30000, 40000);
 
 	return ret;
 }

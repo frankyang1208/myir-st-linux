@@ -348,7 +348,11 @@
 	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
 	pinctrl-names = "default", "sleep";
 	phy-mode = "rgmii-id";
-	max-speed = <1000>;
+	// max-speed = <1000>;
+    fixed-link {
+       speed = <1000>;
+       full-duplex;
+    };
 	phy-handle = <&phy0_eth1>;
 	st,ext-phyclk;
 	st,eth-clk-sel;
@@ -360,10 +364,7 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 		compatible = "snps,dwmac-mdio";
-		fixed-link {
-                  speed = <1000>;
-                  full-duplex;
-                };
+		
 		phy0_eth1: ethernet-phy@0 {
 			//compatible = "ti,dp83869";
                         // No 'compatible' needed here for the PHY driver, it's matched via PHY ID
