@@ -370,7 +370,7 @@
                         fixed-link {
                            speed = <1000>;
                            full-duplex;
-                        }
+                        };
                         ti,max-output-impedance;
                         rx-internal-delay-ps = <2000>;
                         tx-internal-delay-ps = <2000>;
