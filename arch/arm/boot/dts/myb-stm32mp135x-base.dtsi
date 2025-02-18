@@ -350,10 +350,10 @@
 	phy-mode = "rgmii-id";
 	max-speed = <1000>;
 	phy-handle = <&phy0_eth1>;
-	st,ext-phyclk;
-	st,eth-clk-sel;
-        reset-deassert-us = <1000>;
-	reset-assert-us = <1000>;
+	//st,ext-phyclk;
+	//st,eth-clk-sel;
+    reset-deassert-us = <30000>;
+	reset-assert-us = <30000>;
 	st,phy-reset-gpios = <&gpiob 10 GPIO_ACTIVE_HIGH>;
 
 	mdio1 {
