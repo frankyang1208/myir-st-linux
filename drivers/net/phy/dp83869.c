@@ -817,10 +817,10 @@ static int dp83869_config_init(struct phy_device *phydev)
 	int ret, val;
 
 	/* Force speed optimization for the PHY even if it strapped */
-	ret = phy_modify(phydev, DP83869_CFG2, DP83869_DOWNSHIFT_EN,
-			 DP83869_DOWNSHIFT_EN);
-	if (ret)
-		return ret;
+	//ret = phy_modify(phydev, DP83869_CFG2, DP83869_DOWNSHIFT_EN,
+	//		 DP83869_DOWNSHIFT_EN);
+	//if (ret)
+	//	return ret;
 
 	ret = dp83869_configure_mode(phydev, dp83869);
 	if (ret)
