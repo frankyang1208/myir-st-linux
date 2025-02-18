@@ -945,7 +945,7 @@ static struct phy_driver dp83869_driver[] = {
 		.handle_interrupt = dp83869_handle_interrupt,
 		.read_status	= dp83869_read_status,
 
-		.get_tunable	= dp83869_get_tunable,
+		//.get_tunable	= dp83869_get_tunable,
 		.set_tunable	= dp83869_set_tunable,
 
 		.get_wol	= dp83869_get_wol,
