@@ -552,7 +552,12 @@ static int dp83869_set_strapped_mode(struct phy_device *phydev)
 }
 
 #if IS_ENABLED(CONFIG_OF_MDIO)
-static const int dp83869_internal_delay[] = {250, 500, 750, 1000, 1250, 1500,
+static int dp83869_of_init(struct phy_device *phydev)
+{
+	return dp83869_set_strapped_mode(phydev);
+}
+#else
+    static const int dp83869_internal_delay[] = {250, 500, 750, 1000, 1250, 1500,
 					     1750, 2000, 2250, 2500, 2750, 3000,
 					     3250, 3500, 3750, 4000};
 
@@ -631,11 +636,6 @@ static int dp83869_of_init(struct phy_device *phydev)
 
 	return ret;
 }
-#else
-static int dp83869_of_init(struct phy_device *phydev)
-{
-	return dp83869_set_strapped_mode(phydev);
-}
 #endif /* CONFIG_OF_MDIO */
 
 static int dp83869_configure_rgmii(struct phy_device *phydev,
@@ -685,22 +685,23 @@ static int dp83869_configure_fiber(struct phy_device *phydev,
 	linkmode_clear_bit(ETHTOOL_LINK_MODE_Autoneg_BIT, phydev->supported);
 	linkmode_clear_bit(ETHTOOL_LINK_MODE_Autoneg_BIT, phydev->advertising);
     
-    if (bmcr & BMCR_ANENABLE) {
+    //disable it directly
+    //if (bmcr & BMCR_ANENABLE) {
 		ret = phy_modify(phydev, MII_BMCR, BMCR_ANENABLE, 0);
 		if (ret < 0)
 			return ret;
-	}
+	//}
 
-	if (dp83869->mode == DP83869_RGMII_1000_BASE) {
+	//if (dp83869->mode == DP83869_RGMII_1000_BASE) {
 		linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseX_Full_BIT,
 				 phydev->supported);
-	}
-    else {
-	    linkmode_set_bit(ETHTOOL_LINK_MODE_100baseFX_Full_BIT,
-	    		 phydev->supported);
-	    linkmode_set_bit(ETHTOOL_LINK_MODE_100baseFX_Half_BIT,
-	    		 phydev->supported);
-    }
+	//}
+    //else {
+	//    linkmode_set_bit(ETHTOOL_LINK_MODE_100baseFX_Full_BIT,
+	//    		 phydev->supported);
+	//    linkmode_set_bit(ETHTOOL_LINK_MODE_100baseFX_Half_BIT,
+	//    		 phydev->supported);
+    //}
 
 	return 0;
 }
@@ -835,16 +836,16 @@ static int dp83869_config_init(struct phy_device *phydev)
 		phy_write(phydev, DP83869_CFG4, val);
 	}
 
-	if (dp83869->port_mirroring != DP83869_PORT_MIRRORING_KEEP)
-		dp83869_config_port_mirroring(phydev);
+	//if (dp83869->port_mirroring != DP83869_PORT_MIRRORING_KEEP)
+	//	dp83869_config_port_mirroring(phydev);
 
 	/* Clock output selection if muxing property is set */
-	if (dp83869->clk_output_sel != DP83869_CLK_O_SEL_REF_CLK)
-		ret = phy_modify_mmd(phydev,
-				     DP83869_DEVADDR, DP83869_IO_MUX_CFG,
-				     DP83869_IO_MUX_CFG_CLK_O_SEL_MASK,
-				     dp83869->clk_output_sel <<
-				     DP83869_IO_MUX_CFG_CLK_O_SEL_SHIFT);
+	//if (dp83869->clk_output_sel != DP83869_CLK_O_SEL_REF_CLK)
+	//	ret = phy_modify_mmd(phydev,
+	//			     DP83869_DEVADDR, DP83869_IO_MUX_CFG,
+	//			     DP83869_IO_MUX_CFG_CLK_O_SEL_MASK,
+	//			     dp83869->clk_output_sel <<
+	//			     DP83869_IO_MUX_CFG_CLK_O_SEL_SHIFT);
 
 	if (phy_interface_is_rgmii(phydev)) {
 		ret = phy_write_mmd(phydev, DP83869_DEVADDR, DP83869_RGMIIDCTL,
