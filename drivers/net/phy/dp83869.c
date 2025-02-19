@@ -552,12 +552,7 @@ static int dp83869_set_strapped_mode(struct phy_device *phydev)
 }
 
 #if IS_ENABLED(CONFIG_OF_MDIO)
-static int dp83869_of_init(struct phy_device *phydev)
-{
-	return dp83869_set_strapped_mode(phydev);
-}
-#else
-    static const int dp83869_internal_delay[] = {250, 500, 750, 1000, 1250, 1500,
+static const int dp83869_internal_delay[] = {250, 500, 750, 1000, 1250, 1500,
 					     1750, 2000, 2250, 2500, 2750, 3000,
 					     3250, 3500, 3750, 4000};
 
@@ -635,6 +630,11 @@ static int dp83869_of_init(struct phy_device *phydev)
 				dp83869_internal_delay[DP83869_CLK_DELAY_DEF];
 
 	return ret;
+}
+#else
+static int dp83869_of_init(struct phy_device *phydev)
+{
+	return dp83869_set_strapped_mode(phydev);
 }
 #endif /* CONFIG_OF_MDIO */
 
